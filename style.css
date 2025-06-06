@@ -16,6 +16,10 @@ ul {
   padding: 0;
 }
 
+.flex {
+  display: flex;
+}
+
 /* Navegation */
 nav {
   background-color: #333;
