@@ -1,42 +1,292 @@
-/* General */
-body {
-  background-color: #333;
-  font-family: Arial, sans-serif;
+/* 
+ * CSS Optimizado - Implementando mejores prácticas
+ * Incluye: Variables organizadas, mejor estructura, accesibilidad y performance
+ */
+
+:root {
+  /* Colores */
+  --primary-color: #1e1e2f;        /* Fondo principal: gris muy oscuro azulado */
+  --secondary-color: #2e2e3e;      /* Fondo secundario: un poco más claro */
+  --accent-color: #8e44ad;         /* Acento: púrpura elegante */
+  --dark-color: #12121a;           /* Casi negro */
+  --light-color: #f4f4f8;          /* Casi blanco, para detalles o textos sobre acento */
+  --text-dark: #dcdce0;            /* Texto sobre fondos oscuros */
+  --text-light: #1e1e2f;           /* Texto sobre fondos claros o de acento */
+
+  /* Variables de diseño */
+  --transition-time: 0.3s;
+  --border-radius: 15px;
+  --box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  --font-weight-bold: 700;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  
+  /* Espaciados */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+}
+
+/* Reset y Estilos Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-dark);
+  background-color: var(--dark-color);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tipografía */
+h1, h2, h3, h4 {
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
+  color: var(--light-color);
+}
+
+p {
+  margin-bottom: var(--space-sm);
+}
+
 a {
-  color: #fff;
   text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-time) ease;
 }
 
 ul {
-  list-style-type: none;
-  padding: 0;
+  list-style: none;
+  padding-left: 0;
 }
 
-.flex {
+/* Componentes reutilizables */
+.btn {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-sm);
+  background-color: var(--light-color);
+  color: var(--text-light);
+  border: 1px solid var(--light-color);
+  border-radius: var(--border-radius);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-time) ease;
+  text-align: center;
+  will-change: transform;
+}
+
+.btn:hover,
+.btn:focus {
+  color: var(--light-color);
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Utilidades */
+.flex-container {
   display: flex;
 }
 
-/* Navegation */
-nav {
-  background-color: #333;
-  margin: 10px;
+.justify-end {
+  justify-content: flex-end;
 }
 
-.brand-logo {
-  width: 75px;
-  height: 75px;
+.justify-between {
+  justify-content: space-between;
 }
 
-.nav-links {
-  display: flex;
-  justify-content: end;
+.align-center {
+  align-items: center;
+}
+
+/* Navbar - Mejorado con transición suave y mejor accesibilidad */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--space-xs) 0;
+  box-shadow: var(--box-shadow);
+  z-index: 1000;
+  transition: all var(--transition-time) ease;
+  will-change: background, box-shadow;
+}
+
+.navbar.scrolled {
+  background: rgba(30, 30, 47, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.navbar-brand img {
+  height: 60px;
+  padding: var(--space-xs) var(--space-sm) 0 var(--space-md);
+  width: auto;
+  transition: transform var(--transition-time);
+}
+
+.navbar-brand:hover img {
+  transform: scale(1.05);
+}
+
+.nav-menu {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 var(--space-sm) 0 0;
+}
+
+.nav-link {
   position: relative;
+  color: var(--light-color) !important;
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-xs) 0 !important;
+  transition: color var(--transition-time) ease;
+  margin-right: var(--space-md);
+  cursor: pointer;
 }
 
-li {
-  margin: 0 10px;
+.nav-link span {
+  color: inherit;
+  transition: color var(--transition-time) ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--light-color);
+  bottom: 0;
+  left: 0;
+  transition: width var(--transition-time);
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Hero Section - Mejorada con mejor responsive y accesibilidad */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-image: url('./static/hero.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 30, 47, 0.7);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 5rem);
+  margin-bottom: var(--space-md);
+  color: var(--light-color);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  margin-bottom: var(--space-lg);
+  color: var(--light-color);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries - Mejor organizadas */
+@media (max-width: 992px) {
+  .navbar-container {
+    width: 95%;
+  }
+  
+  .nav-item {
+    margin-right: var(--space-sm);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: var(--space-xl) var(--space-sm);
+    background-attachment: scroll;
+  }
+  
+  .navbar-brand img {
+    height: 50px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    padding: var(--space-lg) var(--space-xs);
+  }
+  
+  .hero-title {
+    margin-bottom: var(--space-sm);
+  }
+  
+  .hero-subtitle {
+    margin-bottom: var(--space-md);
+  }
+  
+  .btn {
+    padding: var(--space-xs) var(--space-sm);
+    width: 100%;
+  }
+}
+
+/* Animaciones suaves */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -5,29 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kloser Group</title>
   <link rel="stylesheet" href="./style.css">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="./static/logo.png" type="image/x-icon">
 
 </head>
 <body>
-  <nav>
-    <div class="nav-container">
-      <a href="/">
-        <img class="brand-logo" src="./static/logo-black.png" alt="Kloser Group Logo">
-      </a>
-    
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">Planes</a></li>
-        <li><a href="/services"></a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>  
-      
+  <nav id="navbar" class="navbar">
+    <div class="flex-container justify-between">
+      <span onclick="location.href='#'" class="navbar-brand align-center">
+        <img src="./static/logo.png" alt="Kloser Group Logo">
+      </span>
+  
+      <ul class="flex-container nav-menu">
+        <li class="nav-link"><span onclick="location.href='#'">Inicio</span></li>
+        <li class="nav-link"><span onclick="location.href='#2'">Quienes Somos</span></li>
+        <li class="nav-link"><span onclick="location.href='#3'">Alumnos</span></li>
+        <li class="btn"><span onclick="location.href='#4'">Acceder</span></li>
+      </ul>
     </div>
   </nav>
   
+  <section class="hero" id="">
+    <div class="hero-content">
+      <h1 class="hero-title">Kloser Group</h1>
+      <p class="hero-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi iste nobis itaque aut facere odio maxime ipsam facilis incidunt autem praesentium ipsa aliquid hic sint nostrum, suscipit dolorem mollitia commodi.</p>
+      <span onclick="location.href='#4'" class="btn btn-primary">Acceder</span>
+    </div>
+  </section>
   
-  
-  <script type="module" src="/main.js"></script>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
+  <script src="./main.js"></script>
 </body>
 </html>
