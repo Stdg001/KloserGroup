@@ -5,13 +5,23 @@
 
 :root {
   /* Colores */
-  --primary-color: #1e1e2f;        /* Fondo principal: gris muy oscuro azulado */
-  --secondary-color: #2e2e3e;      /* Fondo secundario: un poco más claro */
-  --accent-color: #8e44ad;         /* Acento: púrpura elegante */
-  --dark-color: #12121a;           /* Casi negro */
-  --light-color: #f4f4f8;          /* Casi blanco, para detalles o textos sobre acento */
-  --text-dark: #dcdce0;            /* Texto sobre fondos oscuros */
-  --text-light: #1e1e2f;           /* Texto sobre fondos claros o de acento */
+  /* --primary-color: #1e1e2f;
+  --secondary-color: #2e2e3e;
+  --accent-color: #8e44ad;
+  --dark-color: #12121a;
+  --light-color: #f4f4f8;
+  --text-dark: #dcdce0;
+  --text-light: #1e1e2f; */
+
+  --primary-color: #262523; /* Color primario */
+  --secondary-color: #f4f4f8; /* Color secundario */
+  --accent-color: #bfc2cb; /* Color de acento */
+  --dark-color: #12121a; /* Color oscuro de fondo */
+  --light-color: #bfc2cb; /* Color claro de fondo */
+  --text-dark: #aea59e; /* Color de texto oscuro */
+  --text-light: #1e1e2f; /* Color de texto claro */
+  --green: #006039; /* Color verde para botones */
+
 
   /* Variables de diseño */
   --transition-time: 0.3s;
@@ -44,8 +54,8 @@ html {
 
 body {
   font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  color: var(--text-dark);
-  background-color: var(--dark-color);
+  color: var(--text-light);
+  background-color: var(--light-color);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -56,7 +66,6 @@ h1, h2, h3, h4 {
   font-weight: var(--font-weight-bold);
   line-height: 1.2;
   margin-bottom: var(--space-sm);
-  color: var(--light-color);
 }
 
 p {
@@ -78,7 +87,7 @@ ul {
 .btn {
   display: inline-block;
   padding: var(--space-xs) var(--space-sm);
-  background-color: var(--light-color);
+  background-color: var(--secondary-color);
   color: var(--text-light);
   border: 1px solid var(--light-color);
   border-radius: var(--border-radius);
@@ -112,6 +121,10 @@ ul {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .align-center {
@@ -148,8 +161,6 @@ ul {
 }
 
 .nav-menu {
-  flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
   margin: 0 var(--space-sm) 0 0;
 }
@@ -162,11 +173,6 @@ ul {
   transition: color var(--transition-time) ease;
   margin-right: var(--space-md);
   cursor: pointer;
-}
-
-.nav-link span {
-  color: inherit;
-  transition: color var(--transition-time) ease;
 }
 
 .nav-link::after {
@@ -237,6 +243,74 @@ ul {
   color: var(--light-color);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
+
+/* Info section */
+.info {
+  background-color: var(--secondary-color); 
+  padding: var(--space-lg) var(--space-md);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin: var(--space-md) auto;
+  max-width: 1200px;
+  display: grid;
+  justify-items: center;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+
+.info-item {
+  flex: 1;
+  padding: var(--space-md);
+  color: var(--text-light);
+  img {
+    max-width: 250px;
+    margin-bottom: var(--space-sm);
+  }
+}
+
+/* Plan section */
+
+.plan {
+  color: var(--text-light);
+  margin: var(--space-md) auto;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.plan-item {
+  background-color: var(--secondary-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: var(--space-md);
+  margin: var(--space-sm);
+  text-align: center;
+
+  img {
+    max-width: 250px;
+    margin-bottom: var(--space-sm);
+  }
+
+  .btn {
+    background-color: var(--green);
+    color: var(--text-light);
+    border: none;
+    transition: background-color var(--transition-time) ease;
+  } 
+
+  .btn:hover,
+  .btn:focus {
+    background-color: var(--accent-color);
+    color: var(--text-light);
+  }
+}
+
+
 
 /* Media Queries - Mejor organizadas */
 @media (max-width: 992px) {
