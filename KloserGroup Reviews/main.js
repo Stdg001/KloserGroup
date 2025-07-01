@@ -1,62 +1,96 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // Navbar scroll effect
   const navbar = document.getElementById('navbar');
-  const heroSection = document.querySelector('.hero-content');
-
-  if (!navbar || !heroSection) {
-    console.error('No se encontró el navbar o la sección hero');
-    return;
-  }
-
-  try {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navbar.classList.remove('scrolled');
-        } else {
-          navbar.classList.add('scrolled');
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50% 0px' // Ajusta según necesites
+  const heroSection = document.querySelector('.hero-section');
+  
+  if (navbar && heroSection) {
+    const heroHeight = heroSection.offsetHeight;
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > heroHeight * 0.8) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
     });
-
-    observer.observe(heroSection);
-  } catch (error) {
-    console.error('Error al inicializar IntersectionObserver:', error);
   }
 
-  // Animación suave del carrusel con JavaScript
-      const clientScroll = document.querySelector('.client-scroll');
-      const clientLogos = document.querySelectorAll('.client-logo');
-      if (clientLogos.length === 0) return;
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
       
-      // Calcula el ancho total de un logo con márgenes
-      const style = window.getComputedStyle(clientLogos[0]);
-      const margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight);
-      const logo1Width = clientLogos[0].offsetWidth + margin;
-      const logo2Width = clientLogos[1].offsetWidth + margin;
-      const logo3Width = clientLogos[2].offsetWidth + margin;
-      const logoWidth = logo1Width + logo2Width +logo3Width;
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
 
-      // El punto de reinicio es cuando se ha desplazado la mitad de los logos (3 logos)
-      const resetPoint = logoWidth;
+  // Client logos carousel
+  const initClientCarousel = () => {
+    const clientScroll = document.querySelector('.client-scroll');
+    const clientLogos = document.querySelectorAll('.client-logo');
+    
+    if (!clientScroll || clientLogos.length === 0) return;
+    
+    // Clone logos for infinite effect
+    const logosContainer = clientScroll;
+    const firstLogo = logosContainer.firstElementChild;
+    const lastLogo = logosContainer.lastElementChild;
+    
+    // Calculate total width needed
+    let totalWidth = 0;
+    clientLogos.forEach(logo => {
+      totalWidth += logo.offsetWidth + 80; // 40px margin on each side
+    });
+    
+    // Set container width
+    logosContainer.style.width = `${totalWidth * 2}px`;
+    
+    // Clone logos
+    const clonedLogos = logosContainer.innerHTML;
+    logosContainer.innerHTML = clonedLogos + clonedLogos;
+    
+    // Animation
+    let scrollPosition = 0;
+    const speed = 1;
+    
+    function animate() {
+      scrollPosition += speed;
       
-      let scrollPosition = 0;
-      const speed = 0.5; // Velocidad del desplazamiento
-      
-      function animateScroll() {
-        scrollPosition += speed;
-        
-        // Reinicia la posición cuando llega al punto de reinicio
-        if (scrollPosition >= resetPoint) {
-          scrollPosition = 0;
-        }
-        
-        clientScroll.style.transform = `translateX(-${scrollPosition}px)`;
-        requestAnimationFrame(animateScroll);
+      if (scrollPosition >= totalWidth) {
+        scrollPosition = 0;
       }
       
-      animateScroll();
+      logosContainer.style.transform = `translateX(-${scrollPosition}px)`;
+      requestAnimationFrame(animate);
+    }
+    
+    animate();
+  };
+  
+  initClientCarousel();
 
-});
+  // Form validation
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('nombre').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('mensaje').value.trim();
+      
+      if (!name || !email || !message) {
+        alert('Por favor completa todos los campos requeridos');
+        return;
+      }
+      
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
