@@ -1,331 +1,104 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KloserGroup - Gestiona Reseñas</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kloser Group</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="assets/logo.png" type="image/png">
-</head>
+  <link rel="icon" href="./static/logo.png" type="image/x-icon">
 
+</head>
 <body>
-  <!-- Navbar Mejorada -->
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="./assets/logo.png" alt="KloserGroup" width="45" height="45">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#funciona">Cómo Funciona</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#precios">Precios</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contacto">Contacto</a>
-          </li>
-        </ul>
-      </div>
+  <nav id="navbar" class="navbar">
+    <div class="flex-container justify-between">
+      <span onclick="location.href='#'" class="navbar-brand align-center">
+        <img src="./static/logo.png" alt="Kloser Group Logo">
+      </span>
+  
+      <ul class="flex-container nav-menu">
+        <li class="nav-link" onclick="location.href='#'"><span">Inicio</span></li>
+        <li class="nav-link" onclick="location.href='#2'"><span">Como Funciona</span></li>
+        <li class="nav-link" onclick="location.href='#3'"><span>Precios</span></li>
+        <li class="nav-link" onclick="location.href='#4'"><span>Contacto</span></li>
+      </ul>
     </div>
   </nav>
-
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container">
+  
+  <section class="hero" id="">
+    <div class="hero-content">
       <h1 class="hero-title">Cada reseña sin respuesta es dinero que se escapa</h1>
       <p class="hero-subtitle">Con <strong>KloserGroup</strong>, gestiona eficazmente tus reseñas en Google, mejora tu reputación y convierte opiniones en ventas.</p>
-      <a href="#precios" class="btn btn-cta">¡Aumenta tus ingresos hoy mismo!</a>
+      <span onclick="location.href='#4'" class="btn btn-primary">Aumenta tus Ingresos <strong>Hoy mismo</strong></strong></span>
     </div>
   </section>
 
-  <!-- Cómo Funciona -->
-  <section id="funciona" class="how-section section bg-light">
-    <div class="container">
-      <div class="row text-center mb-5">
-        <div class="col">
-          <h2 class="section-title">Domina Ventas con Reseñas</h2>
-          <p class="lead">No puedes resolver lo que no sabes que está fallando. En KloserGroup transformamos tus reseñas en oportunidades de crecimiento.</p>
-        </div>
+  <section class="info">
+      <h1 class="info-title">Domina Ventas con Reseñas</h1>
+    
+    <div class="info-container">
+      <div class="info-item">
+        <h2>Gestión Integral</h2>
+        <p>Respondemos todas tus reseñas en Google (Tanto positivas y negativas) con estrategias que fortalecen tu reputación.</p>
+        <img src="./static/info/benefit1.png" alt="Beneficio 1">
       </div>
-      
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-box">
-            <div class="feature-icon">
-              <i class="fas fa-comment-dots"></i>
-            </div>
-            <h3>Gestión Integral</h3>
-            <p>Respondemos todas tus reseñas en Google (positivas y negativas) con estrategias que fortalecen tu reputación.</p>
-          </div>
-        </div>
-        
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-box">
-            <div class="feature-icon">
-              <i class="fas fa-chart-line"></i>
-            </div>
-            <h3>Informes Mensuales</h3>
-            <p>Analizamos tus reseñas y destacamos los puntos críticos que afectan tus ventas para decisiones acertadas.</p>
-          </div>
-        </div>
-        
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-box">
-            <div class="feature-icon">
-              <i class="fas fa-search"></i>
-            </div>
-            <h3>Detección de Patrones</h3>
-            <p>Identificamos las causas reales que frenan tu crecimiento para que mejores donde realmente importa.</p>
-          </div>
-        </div>
-        
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-box">
-            <div class="feature-icon">
-              <i class="fas fa-robot"></i>
-            </div>
-            <h3>IA + Supervisión Humana</h3>
-            <p>Tecnología de punta con expertos que garantizan respuestas precisas y con tono humano.</p>
-          </div>
-        </div>
+
+      <div class="info-item">
+        <h2>Informes Mensuales</h2>
+        <p>Analizamos tus reseñas y destacamos los puntos críticos que afectan tus ventas para decisiones acertadas.</p>
+        <img src="./static/info/benefit1.png" alt="Beneficio 2">
       </div>
-    </div>
+
+      <div class="info-item">
+        <h2>Mentorías Personalizadas</h2>
+        <p>Recibe orientación de expertos en ventas que te ayudarán a superar desafíos y alcanzar tu máximo potencial.</p>
+        <img src="./static/info/benefit1.png" alt="Beneficio 3">
+      </div>
+  
+      <div class="info-item">
+        <h2>Mentorías Personalizadas</h2>
+        <p>Recibe orientación de expertos en ventas que te ayudarán a superar desafíos y alcanzar tu máximo potencial.</p>
+        <img src="./static/info/benefit1.png" alt="Beneficio 3">
+      </div>
   </section>
-
-  <!-- Problemas que Resolvemos -->
-  <section class="problems-section section bg-light">
-    <div class="container">
-      <div class="row gx-5 gy-4 align-items-stretch">
-      <div class="col-lg-6">
-          <div class="problem-card">
-            <h3>1. No puedes con todo</h3>
-            <p>Lidiar con operaciones, empleados, clientes... y encima las reseñas. No es falta de capacidad, es falta de tiempo que te está costando ventas.</p>
-          </div>
-          
-          <div class="problem-card ">
-            <h3>2. Delegar es escalar</h3>
-            <p>Los grandes empresarios saben en qué enfocarse. Nos encargamos de esos "pequeños detalles" que marcan la gran diferencia.</p>
-          </div>
-      </div>
-
-      <div class="col-lg-6">
-        <div class="problem-card">
-          <h3>3. La reputación es oro</h3>
-          <p>Cada reseña sin respuesta es una oportunidad perdida. Cada respuesta mediocre, una imagen dañada. Nosotros respondemos con estrategia y visión de marca.</p>
-        </div>
-        
-        <div class="problem-card">
-          <h3>4. KloserGroup Resuelve</h3>
-          <p>Tú enfócate en crecer. Nosotros nos encargamos de convertir tus reseñas en ventas. Todo empieza con una buena reputación.</p>
-        </div>
-      </div>
-
-      <div class="d-flex justify-content-center mt-3">
-        <a href="#precios" class="btn btn-primary btn-lg">¡Actúa hoy!</a>
-      </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Carrusel Clientes -->
-  <section class="clients-section bg-dark py-5">
-    <div class="container text-center">
-      <h2 class="section-title text-white mb-5">Empresas que confían en nosotros</h2>
-      <div class="clients-container position-relative">
-        <div class="client-scroll">
-          <!-- Logos duplicados para efecto infinito -->
-          <img src="https://cdn.durable.co/blocks/2dnxLPDZ6HavOY8KdCNQqhHarXPzRvN5R31kOfYnn7mGnoMVXhEqMGykJemgrgPm.png" class="client-logo" alt="Cliente 1">
-          <img src="https://cdn.durable.co/blocks/fXzJUWl1JeMYY5677paSCRkNhdYpUjbZiV5SPh1kdBOj3FlhgZle1N56VCgt0pqx.png" class="client-logo" alt="Cliente 2">
-          <img src="https://cdn.durable.co/blocks/fjZdKQQ2Pf4quO7aRNks9659AvquCyUpwiqSxgNXQYi24a7uQvVQabCGJ6zm1iCe.jpg" class="client-logo" alt="Cliente 3">
-          <!-- Duplicados (mismos logos) -->
-          <img src="https://cdn.durable.co/blocks/2dnxLPDZ6HavOY8KdCNQqhHarXPzRvN5R31kOfYnn7mGnoMVXhEqMGykJemgrgPm.png" class="client-logo" alt="Cliente 1">
-          <img src="https://cdn.durable.co/blocks/fXzJUWl1JeMYY5677paSCRkNhdYpUjbZiV5SPh1kdBOj3FlhgZle1N56VCgt0pqx.png" class="client-logo" alt="Cliente 2">
-          <img src="https://cdn.durable.co/blocks/fjZdKQQ2Pf4quO7aRNks9659AvquCyUpwiqSxgNXQYi24a7uQvVQabCGJ6zm1iCe.jpg" class="client-logo" alt="Cliente 3">
-           <!-- Logos duplicados para efecto infinito -->
-          <img src="https://cdn.durable.co/blocks/2dnxLPDZ6HavOY8KdCNQqhHarXPzRvN5R31kOfYnn7mGnoMVXhEqMGykJemgrgPm.png" class="client-logo" alt="Cliente 1">
-          <img src="https://cdn.durable.co/blocks/fXzJUWl1JeMYY5677paSCRkNhdYpUjbZiV5SPh1kdBOj3FlhgZle1N56VCgt0pqx.png" class="client-logo" alt="Cliente 2">
-          <img src="https://cdn.durable.co/blocks/fjZdKQQ2Pf4quO7aRNks9659AvquCyUpwiqSxgNXQYi24a7uQvVQabCGJ6zm1iCe.jpg" class="client-logo" alt="Cliente 3">
-          <img src="https://cdn.durable.co/blocks/2dnxLPDZ6HavOY8KdCNQqhHarXPzRvN5R31kOfYnn7mGnoMVXhEqMGykJemgrgPm.png" class="client-logo" alt="Cliente 1">
-        </div>
-      </div>
-    </div>
-  </section>
-
+  
   <!-- Sección Precios -->
-  <section id="precios" class="pricing-section section">
-    <div class="container">
-      <div class="row text-center mb-5">
-        <div class="col">
-          <h2 class="display-4 fw-bold">Planes a tu medida</h2>
-          <p class="lead">Elige el plan que mejor se adapte a tu negocio</p>
-        </div>
-      </div>
-      
-      <div class="row">
-        <!-- Plan Básico -->
-        <div class="col-md-4">
-          <div class="card pricing-card">
-            <div class="card-header pricing-header text-center">
-              <h3 class="my-3">Impulso</h3>
-              <h2 class="display-4">$25<span class="fs-6">/mes</span></h2>
-            </div>
-            <div class="card-body text-center">
-              <ul class="list-unstyled my-4">
-                <li class="mb-3 text-muted"><i class="fas fa-times-circle  me-2"></i>Gestion de Reseñas</li>
-                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Informe Mensual Basico</li>
-                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Modelo IA Basico</li>
-              </ul>
-              <a href="#contacto" class="btn btn-primary w-100">Empezar</a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Plan Profesional -->
-        <div class="col-md-4">
-          <div class="card pricing-card">
-            <div class="card-header pricing-header text-center">
-              <h3 class="my-3">Crecimineto</h3>
-              <h2 class="display-4">$30<span class="fs-6">/mes</span></h2>
-              <span class="badge bg-light text-primary">Más Popular</span>
-            </div>
-            <div class="card-body text-center">
-              <ul class="list-unstyled my-4">
-                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Gestion de Reseñas</li>
-                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Informe Mensual Avanzado</li>
-                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Modelo IA Avanzado</li>
-              </ul>
-              <a href="#contacto" class="btn btn-primary w-100">Empezar</a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Plan Empresa -->
-        <div class="col-md-4">
-          <div class="card pricing-card">
-            <div class="card-header pricing-header text-center">
-              <h3 class="my-3">Dominio</h3>
-              <h2 class="display-4">$55<span class="fs-6">/mes</span></h2>
-            </div>
-            <div class="card-body text-center">
-              <ul class="list-unstyled my-4">
-                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Gestion de Reseñas</li>
-                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>2 Informes Mensuales Avanzados</li>
-                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Modelo IA de Utlima Generación</li>
-              </ul>
-              <a href="#contacto" class="btn btn-primary w-100">Empezar</a>
-            </div>
-          </div>
-        </div>
-      </div>
+  <section id="" class="plan">
+    <div class="plan-item">
+      <h2 class="">Curso Basico</h2>
+      <img src="./static/curso1.png" alt="curse1">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit voluptatem soluta minus, nisi molestiae rem consectetur accusamus eos numquam, quas obcaecati ut modi iste, error eligendi voluptate velit libero! Fugit.</p>  
+      <span class="btn">Unete Ahora</span>
     </div>
+
+    <div class="plan-item">
+      <h2 class="">Curso Medio</h2>
+      <img src="./static/curso1.png" alt="curse2">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, eum! Dignissimos officia tempore nemo incidunt ea quam placeat? Aperiam id numquam cupiditate, dolore eligendi consectetur labore eius quo natus eaque!</p>  
+      <span class="btn">Unete Ahora</span>
+    </div>
+
+    <div class="plan-item">
+      <h2 class="">Curso Avanzado</h2>
+      <img src="./static/curso1.png" alt="curse3">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque itaque distinctio perferendis ducimus sint delectus obcaecati dignissimos modi veritatis saepe expedita hic blanditiis excepturi consequatur commodi reiciendis, pariatur quia amet!</p>  
+      <span class="btn">Unete Ahora</span>
+    </div>
+
   </section>
 
-  <!-- Sección Contacto -->
-  <section id="contacto" class="contact-section section bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 mx-auto">
-          <div class="contact-form">
-            <h2 class="text-center mb-4">Contáctanos</h2>
-            <form>
-              <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
-              </div>
-              <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="tu@email.com" required>
-              </div>
-              <div class="mb-3">
-                <label for="asunto" class="form-label">Asunto</label>
-                <input type="text" class="form-control" id="asunto" placeholder="¿Cómo podemos ayudarte?">
-              </div>
-              <div class="mb-3">
-                <label for="mensaje" class="form-label">Mensaje</label>
-                <textarea class="form-control" id="mensaje" rows="4" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary w-100 py-2">Enviar Mensaje</button>
-            </form>
-            
-            <div class="text-center mt-4">
-              <p>¿Prefieres contactarnos por WhatsApp?</p>
-              <a href="https://wa.me/+34672294103" class="whatsapp-btn">
-                <i class="fab fa-whatsapp me-2"></i> Chatear por WhatsApp
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- 
+  <section class="login" id="4">
+    <div class="login-container">
+      <h1>Acceso</h1>
+      <form action="">
+        <input type="text" placeholder="Usuario" required>
+        <input type="password" placeholder="Contraseña" required>
+        <span  class="btn" type="submit">Entrar</span>
+      </form>
+      <span class="btn btn-secondary">Registrarse</span>
     </div>
-  </section>
+  </section> -->
 
-  <!-- Footer -->
-  <footer class="text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <img src="./assets/logo.png" alt="KloserGroup" width="45" height="45" class="mb-3">
-          <p>Gestiona tus reseñas como un profesional y aumenta tus ventas</p>
-          <div class="social-icons mb-4">
-            <!-- <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a> -->
-            <!-- <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a> -->
-          </div>
-          <p class="mb-0">&copy; 2025 KloserGroup. Todos los derechos reservados.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Animación suave del carrusel con JavaScript
-      const clientScroll = document.querySelector('.client-scroll');
-      const clientLogos = document.querySelectorAll('.client-logo');
-      if (clientLogos.length === 0) return;
-      
-      // Calcula el ancho total de un logo con márgenes
-      const style = window.getComputedStyle(clientLogos[0]);
-      const margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight);
-      const logo1Width = clientLogos[0].offsetWidth + margin;
-      const logo2Width = clientLogos[1].offsetWidth + margin;
-      const logo3Width = clientLogos[2].offsetWidth + margin;
-      const logoWidth = logo1Width + logo2Width +logo3Width;
-
-      // El punto de reinicio es cuando se ha desplazado la mitad de los logos (3 logos)
-      const resetPoint = logoWidth;
-      
-      let scrollPosition = 0;
-      const speed = 0.5; // Velocidad del desplazamiento
-      
-      function animateScroll() {
-        scrollPosition += speed;
-        
-        // Reinicia la posición cuando llega al punto de reinicio
-        if (scrollPosition >= resetPoint) {
-          scrollPosition = 0;
-        }
-        
-        clientScroll.style.transform = `translateX(-${scrollPosition}px)`;
-        requestAnimationFrame(animateScroll);
-      }
-      
-      animateScroll();
-    });
-  </script>
+  <script src="./main.js"></script>
 </body>
 </html>
