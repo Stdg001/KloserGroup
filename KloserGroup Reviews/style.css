@@ -1,7 +1,12 @@
-/* 
- * CSS Optimizado - Implementando mejores prácticas
- * Incluye: Variables organizadas, mejor estructura, accesibilidad y performance
- */
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --accent-color: #4cc9f0;
+  --dark-color: #1f2937;
+  --light-color: #f9fafb;
+  --text-dark: #374151;
+  --text-light: #6b7280;
+}
 
 :root {
   /* Colores */
@@ -12,16 +17,6 @@
   --light-color: #f4f4f8;
   --text-dark: #dcdce0;
   --text-light: #1e1e2f; */
-
-  --primary-color: #262523; /* Color primario */
-  --secondary-color: #f4f4f8; /* Color secundario */
-  --accent-color: #bfc2cb; /* Color de acento */
-  --dark-color: #12121a; /* Color oscuro de fondo */
-  --light-color: #e7e9ee; /* Color claro de fondo */
-  --text-dark: #aea59e; /* Color de texto oscuro */
-  --text-light: #1e1e2f; /* Color de texto claro */
-  --green: #006039; /* Color verde para botones */
-
 
   /* Variables de diseño */
   --transition-time: 0.3s;
@@ -131,7 +126,75 @@ ul {
   align-items: center;
 }
 
-/* Navbar - Mejorado con transición suave y mejor accesibilidad */
+.text-center {
+  text-align: center;
+}
+
+/* Estilos Base */
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin: 0
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+
+/* Secciones Comunes */
+.section {
+  transition: background-color 0.5s ease;
+  padding: 100px 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title:after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 4px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  bottom: -12px;
+  left: 25%;
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+/* Ajusta los colores de fondo para transiciones suaves */
+.how-section {
+  background-color: #f8f9fa;
+}
+
+.pricing-section {
+  background-color: #ffffff;
+}
+
+.contact-section {
+  background-color: #f8f9fa;
+}
+
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
@@ -142,12 +205,14 @@ ul {
   z-index: 1000;
   transition: all var(--transition-time) ease;
   will-change: background, box-shadow;
+  
 }
 
 .navbar.scrolled {
   background: rgba(30, 30, 47, 0.95);
   backdrop-filter: blur(10px);
 }
+
 
 .navbar-brand img {
   height: 60px;
@@ -158,11 +223,6 @@ ul {
 
 .navbar-brand:hover img {
   transform: scale(1.05);
-}
-
-.nav-menu {
-  align-items: center;
-  margin: 0 var(--space-sm) 0 0;
 }
 
 .nav-link {
@@ -192,8 +252,9 @@ ul {
   width: 100%;
 }
 
-/* Hero Section - Mejorada con mejor responsive y accesibilidad */
-.hero {
+
+/* Hero Section */
+.hero-section {
   position: relative;
   min-height: 100vh;
   background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
@@ -204,14 +265,11 @@ ul {
   color: var(--text-dark);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   padding: var(--space-xl) var(--space-md);
   overflow: hidden;
 }
 
-.hero::before {
+.hero-section::before {
   content: '';
   position: absolute;
   top: 0;
@@ -244,24 +302,21 @@ ul {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Info section */
-.info {
-  padding: var(--space-lg) var(--space-md);
-  margin: var(--space-md) auto;
-  max-width: 1200px;
-  display: grid;
-  justify-items: center;
+
+/* Cómo Funciona */
+.how-section {
+  background-color: var(--light-color);
+  margin: 20px;
 }
 
-.info-title {
+.how-section h1 {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 30px;
   position: relative;
   display: inline-block;
 }
-
-.info-title::after{
+.how-section h1::after{
   content: '';
   position: absolute;
   width: 50%;
@@ -272,115 +327,338 @@ ul {
   border-radius: 2px;
 }
 
-.info-container {
+.feature-box {
+  background: white;
+  border-radius: 15px;
+  padding: 40px 30px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  transition: all 0.4s;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  margin: 15px
+}
+
+.feature-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  border-color: rgba(67, 97, 238, 0.1);
+}
+
+.feature-icon {
+  font-size: 2.8rem;
+  color: var(--primary-color);
+  margin-bottom: 25px;
+  background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(63, 55, 201, 0.1));
+  width: 80px;
+  height: 80px;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  text-align: center;
+  justify-content: center;
+  border-radius: 20px;
 }
 
-.info-item {
-  background-color: var(--secondary-color);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  padding: var(--space-md);
-  margin: var(--space-sm);
-  text-align: center;
+.feature-box h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--dark-color);
 }
 
-.info-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-}
-
-/* Plan section */
-
-.plan {
+.feature-box p {
   color: var(--text-light);
-  margin: var(--space-md) auto;
-  max-width: 1200px;
+}
+
+/* Problemas que Resolvemos */
+.problems-section {
+  background-color: #f8f9fa;
+  transition: background-color 0.5s ease; /* Transición suave */
+  margin: 0 20px 20px 20px;
+}
+
+.problem-card {
+  background: white;
+  border-left: 4px solid var(--primary-color);
+  padding: 30px;
+  margin: 0 10px 30px 10px ;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.problem-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.problem-card h3 {
+  font-size: 1.4rem;
+  color: var(--dark-color);
+  margin-bottom: 15px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.problem-card h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+}
+
+/* Carrusel Clientes */
+.clients-section {
+  padding: 20px 0 20px 0;
+  background-color: var(--dark-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.clients-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(to right, var(--dark-color) 0%, rgba(31, 41, 55, 0) 15%, rgba(31, 41, 55, 0) 85%, var(--dark-color) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.clients-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.client-logo {
+  height: 80px;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s;
+  margin: 0 40px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.client-logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.client-scroll {
   display: flex;
-  justify-content: space-evenly;
+  animation: scroll 30s linear infinite;
+  width: max-content;
 }
 
-.plan-item {
-  background-color: var(--secondary-color);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  padding: var(--space-md);
-  margin: var(--space-sm);
+/* Sección Precios */
+.pricing-section {
+  background-color: var(--light-color);
+}
+
+.pricing-card {
+  border: none;
+  border-radius: 15px;
+  transition: all 0.4s;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+  margin: 15px 20px 0 0;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 40px 30px;
   text-align: center;
+}
 
-  img {
-    max-width: 250px;
-    margin-bottom: var(--space-sm);
+.pricing-header h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.pricing-header .display-4 {
+  font-weight: 700;
+  margin: 15px 0;
+}
+
+.pricing-header .fs-6 {
+  font-size: 1rem !important;
+  opacity: 0.8;
+}
+
+.badge {
+  background-color: white;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-top: 10px;
+  padding: 5px 15px;
+  border-radius: 50px;
+}
+
+.pricing-body {
+  padding: 30px;
+  background: white;
+  text-align: center;
+}
+
+.pricing-body ul {
+  padding-left: 0;
+  margin: 30px 0;
+}
+
+.pricing-body li {
+  list-style: none;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.pricing-body i {
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+/* Sección Contacto */
+.contact-section {
+  background-color: white;
+}
+
+.contact-form {
+  background-color: var(--light-color);
+  border-radius: 15px;
+  padding: 50px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.form-control {
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.25);
+}
+
+.whatsapp-btn {
+  background-color: #25D366;
+  color: white;
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 20px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-btn:hover {
+  background-color: #128C7E;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-btn i {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark-color);
+  color: white;
+  padding: 60px 0 30px;
+}
+
+.social-icons a {
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 8px;
+  transition: all 0.3s;
+}
+
+.social-icons a:hover {
+  background: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-
-  .btn {
-    background-color: var(--green);
-    color: var(--text-light);
-    border: none;
-    transition: background-color var(--transition-time) ease;
-  } 
-
-  .btn:hover,
-  .btn:focus {
-    background-color: var(--accent-color);
-    color: var(--text-light);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-
-
-/* Media Queries - Mejor organizadas */
+/* Responsive */
 @media (max-width: 992px) {
-  .navbar-container {
-    width: 95%;
+  .hero-title {
+    font-size: 2.5rem;
   }
   
-  .nav-item {
-    margin-right: var(--space-sm);
+  .section-title {
+    font-size: 2rem;
   }
 }
 
 @media (max-width: 768px) {
-  .hero {
-    padding: var(--space-xl) var(--space-sm);
+  .hero-section {
+    padding: 120px 0;
     background-attachment: scroll;
   }
   
-  .navbar-brand img {
-    height: 50px;
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .section {
+    padding: 70px 0;
+  }
+  
+  .client-logo {
+    height: 60px;
+    margin: 0 25px;
   }
 }
 
 @media (max-width: 576px) {
-  .hero {
-    padding: var(--space-lg) var(--space-xs);
+  .navbar-brand img {
+    width: 45px;
   }
   
-  .hero-title {
-    margin-bottom: var(--space-sm);
-  }
-  
-  .hero-subtitle {
-    margin-bottom: var(--space-md);
-  }
-  
-  .btn {
-    padding: var(--space-xs) var(--space-sm);
-    width: 100%;
-  }
-}
-
-/* Animaciones suaves */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  .contact-form {
+    padding: 30px;
   }
 }

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   const navbar = document.getElementById('navbar');
-  const heroSection = document.querySelector('.hero');
+  const heroSection = document.querySelector('.hero-content');
 
   if (!navbar || !heroSection) {
     console.error('No se encontró el navbar o la sección hero');
